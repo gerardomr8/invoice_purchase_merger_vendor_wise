@@ -1,0 +1,38 @@
+<odoo>
+	<data>
+		<!--Add a Merge Purchase With Invoice Button in action menu -->
+		<record id="action_merge_purchase_invoice" model="ir.actions.server">
+			<field name="name">Merge Purchase With Invoice</field>
+			<field name="state">code</field>
+			<field name="model_id" ref="invoice_purchase_merger_vendor_wise.model_purchase_order" />
+			<field name="code">
+					action = model.merge_purchase_invoice()
+			</field>
+		</record>
+		
+		<!--To add a line_id and purchase smart button -->
+		<record id="view_invoice_supplier_form_inherit" model="ir.ui.view">
+			<field name="name">account.invoice.form.inherit</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_supplier_form" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']"
+					position="after">
+					<field name="line_id" invisible='1' />
+				</xpath>
+				<xpath expr="//form/sheet/div[1]" position="before">
+					<div class="oe_button_box" name="button_box" >
+						<button class="oe_stat_button" type="object" name="purchase_order"
+							icon="fa-cart-arrow-down" >
+							<div class="o_stat_info" widget="handle">
+								<field name="purchase_count" class="o_stat_value" />
+								<span class="o_stat_text" > Purchase </span>
+							</div>
+						</button>
+					</div>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

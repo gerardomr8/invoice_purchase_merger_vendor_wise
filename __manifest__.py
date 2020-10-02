@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2011 NovaPoint Group LLC (<http://www.novapointgroup.com>)
+#    Copyright (C) 2004-2010 OpenERP SA (<http://www.openerp.com>)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>
+#
+##############################################################################
+
+
+{
+    'name': 'Purchase Invoice Merger',
+    'author': "PPTS [India] Pvt.Ltd.",
+    'price': 15.00,
+    'currency': 'EUR',
+    'license': 'OPL-1',
+    'category': 'Purchase',
+    'version': '11.0',
+    'support': 'business@pptservices.com',
+    'description': """
+    PO Invoice Vendor wise grouping
+""",
+    'website': 'http://www.pptssolutions.com/',
+    'depends': ['base','purchase','account'],
+    'data': [
+
+        'views/purchase_views.xml',
+                 ],
+    'images': ['static/description/banner.png'],
+    'installable': True,
+    'application': True,
+    
+}
